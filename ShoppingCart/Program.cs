@@ -6,6 +6,7 @@ namespace ShoppingCart
     {
         static void Main(string[] args)
         {
+            
             ShopApp shopApp = new ShopApp();
             Item item = new Item();
             Cart cart = new Cart();
@@ -15,11 +16,14 @@ namespace ShoppingCart
             int userchoice = Convert.ToInt32(Console.ReadLine());
             if (userchoice == 1)
             {
-                do
+                while(shopping == false)
                 {
+                    int userInput;
+                    string userChoice;
                     //Console.WriteLine("To go to Checkout, enter 'c");
                     Console.WriteLine("Please enter the name of the item");
                     string name = Console.ReadLine();
+
 
                     Console.WriteLine("Please enter the price of the item");
                     int price = Convert.ToInt32(Console.ReadLine());
@@ -31,14 +35,33 @@ namespace ShoppingCart
                     cart.ShowCart();
 
                     Console.WriteLine("Do you want to keep shopping?  If yes type: 'y'. if no type: 'n'");
-                    string userInput = Console.ReadLine();
+                    userChoice = Console.ReadLine();
 
-                    if (userInput == "y")
+                    if (userChoice == "y")
                     {
-                        shopping = true;
+                        shopping = false;
                     }
-                    else shopping = false;
-                } while (shopping);
+                    else 
+                
+                    Console.WriteLine("Type 1 to checkout, 2 to remove and item, or 3 to exit the program");
+                    userInput = Convert.ToInt32(Console.ReadLine());
+
+                    if (userInput == 1)
+                    {
+                        Console.WriteLine("Thank you for your purchase");
+                    }
+                    else if (userInput == 2)
+                    {
+                        cart.RemoveSelectedItem(cart.SelectItem(shopApp));
+                    }
+                    else
+                        Environment.Exit(1);
+
+                    
+
+                }
+
+                
 
 
             }

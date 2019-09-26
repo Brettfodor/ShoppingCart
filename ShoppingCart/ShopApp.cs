@@ -7,7 +7,11 @@ namespace ShoppingCart
     
         public class ShopApp
         {
+        
+
             public List<Item> items = new List<Item>();
+
+        
 
 
         }
